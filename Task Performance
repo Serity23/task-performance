@@ -1,0 +1,90 @@
+using System;
+
+namespace Task_Performance_1
+{
+    class Program
+    {
+        public static string? Address { get; private set; }
+
+        static void Main(string[] args)
+        {
+            string surname;
+            string firstname;
+            string middleName;
+            string contact;
+            string address;
+            string sex;
+            string job;
+            DateTime birthdate;
+
+            Console.Write("Your Surname: ");
+            surname = Console.ReadLine();
+
+            Console.Write("Your Firstname: ");
+            firstname = Console.ReadLine();
+
+            Console.Write("Your Middle Name: ");
+            middleName = Console.ReadLine();
+
+            while (true)
+            {
+                Console.Write("Your Birthdate (MM/DD/YYYY): ");
+                string birthdateInput = Console.ReadLine();
+                if (DateTime.TryParse(birthdateInput, out birthdate))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid format. Please enter the date in MM/DD/YYYY format.");
+                }
+            }
+
+            Console.Write("Sex: ");
+            sex = Console.ReadLine();
+
+            Console.Write("Job: ");
+            job = Console.ReadLine();
+
+            Console.Write("Your Address: ");
+            address = Console.ReadLine();
+
+            Console.Write("Your Contact Number: ");
+            contact = Console.ReadLine();
+
+            Console.Clear();
+            Console.WriteLine("========== PERSONAL INFORMATION ==========\n");
+            Console.WriteLine(string.Format("Name: {0}, {1} {2}", surname, firstname, middleName));
+            Console.WriteLine(string.Format("Age: {0} years old", CalculateAge(birthdate)));
+            Console.WriteLine(string.Format("Sex: {0}", sex));
+            Console.WriteLine(string.Format("Job: {0}", job));
+            Console.WriteLine(string.Format("Address: {0}", address));
+            Console.WriteLine(string.Format("Contact Number: {0}", contact));
+            Console.WriteLine("\n==========================================");
+            Console.WriteLine("\nPress any key to exit...");
+            
+
+        }
+
+        static int CalculateAge(DateTime birthdate)
+        {
+            DateTime today = DateTime.Today;
+            int age = today.Year - birthdate.Year;
+            if (birthdate.Date > today.AddYears(-age)) age--;
+            return age;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+        
+    
+
+
+

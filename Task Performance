@@ -4,7 +4,6 @@ namespace Task_Performance_1
 {
     class Program
     {
-        public static string? Address { get; private set; }
 
         static void Main(string[] args)
         {
@@ -75,16 +74,6 @@ namespace Task_Performance_1
         }
     }
 }
-
-
-
-
-
-
-
-
-        
-    
 
 
 
